@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Anuncios</title>
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+	<h1>Anuncios</h1>
+	<table>
+		<tr>
+			<th>Id</th>
+			<th>Title</th>
+			<th>Content</th>
+			<th>Published</th>
+			<th>Updated</th>
+			<th>Autor</th>
+		</tr>
+		<th:block th:each="a : ${anuncios}">
+			<tr>
+				<td th:text="${a.id}"></td>
+				<td th:text="${a.title}"></td>
+				<td th:text="${a.content}"></td>
+				<td th:text="${a.published}"></td>
+				<td th:text="${a.updated}"></td>
+				<td><button><a th:href="@{|/anuncios/verAutor/${a.getAutor.getId}|}">Autor</a></button></td>
+				<!--<td th:text="${a.getAutor.getId}"></td> --> <!-- llamar el metodo que permite obtener el id -->
+			</tr>
+		</th:block>
+
+	</table>
+	<br />
+	<table>
+		<tr>
+			<td><form method="get" action="/anuncios">
+					<button>Volver</button>
+				</form></td>
+			<td><form method="get" action="/anuncios/menucomentarios">
+					<button>Comentarios</button>
+				</form></td>
+		</tr>
+	</table>
+</body>
+</html>

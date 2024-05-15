@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Eventos del autor</title>
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+	<h1>Eventos del Autor</h1>
+	<table>
+		<tr>
+			<th>Id</th>
+			<th>Titulo</th>
+			<th>Descripcion</th>
+			<th>Estado</th>
+			<th>Tipo</th>
+			<th>Publicado</th>
+		</tr>
+		<th:block th:each="e : ${eventos}">
+			<tr>
+				<td th:text="${e.id}"></td>
+				<td th:text="${e.title}"></td>
+				<td th:text="${e.descripcion}"></td>
+				<td th:text="${e.estado}"></td>
+				<td th:text="${e.tipo}"></td>
+				<td th:text="${e.datecreated}"></td>
+			</tr>
+		</th:block>
+
+	</table>
+	<br/><br/>
+	<form method="get" action="/anuncios/listar">
+		<button>Volver</button>
+	</form>
+</body>
+</html>

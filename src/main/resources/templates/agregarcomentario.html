@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Agregar comentario</title>
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+	<h1>Agregar Comentario</h1>
+	<form method="post" action="/anuncios/agregarComentario">
+		<input type="hidden" th:attr="name='idAnuncio'" th:value="${idAnuncio}" />
+		<label>Nombre Comentario:</label>
+		<input name="name" type="text" placeholder="Nombre del comentario" /><br/><br/>
+		<label>Contenido Comentario:</label>
+		<input name="content" type="text" placeholder="Contenido del comentario" /><br/><br/>
+		<label>Fecha Publicacion:</label>
+		<input type="date" name="published"><br/><br/>
+		<input name="enviar" type="submit" placeholder="Ingresar Anuncio" /> <input type="reset" /><br/>
+	</form>
+	<br/>
+	<form method="get" action="/anuncios/menucomentarios">
+		<button>Volver Comentarios</button>
+	</form>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Ver Comentarios</title>
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+	<h1>Comentarios</h1>
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Contenido</th>
+			<th>Fecha Publicacion</th>
+			<th>Fecha Actualizacion</th>
+		</tr>
+		<th:block th:each="c : ${comentarios}">
+			<tr>
+				<td th:text="${c.name}"></td>
+				<td><textarea  th:text="${c.content}" rows="4" cols="50"></textarea></td>
+				<td th:text="${c.published}"></td>
+				<td th:text="${c.updated}"></td>
+			</tr>
+		</th:block>
+
+	</table>
+	<br/>
+	<form method="get" action="/anuncios/menucomentarios">
+		<button>Volver Comentarios</button>
+	</form>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Autor</title>
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+	<h1>Autor</h1>
+	<table>
+		<tr>
+			<th>Id</th>
+			<th>Nombre</th>
+			<th>Apellido</th>
+			<th>Email</th>
+			<th>Usuario</th>
+			<th>Eventos</th>
+		</tr>
+		<th:block th:each="a : ${autor}">
+			<tr>
+				<td th:text="${a.id}"></td>
+				<td th:text="${a.name}"></td>
+				<td th:text="${a.lastname}"></td>
+				<td th:text="${a.email}"></td>
+				<td th:text="${a.username}"></td>
+				<td><button><a th:href="@{|/anuncios/eventosautor/${a.id}|}">Eventos</a></button></td>
+			</tr>
+		</th:block>
+
+	</table>
+	<br/><br/>
+	<form method="get" action="/anuncios/listar">
+		<button>Volver</button>
+	</form>
+	
+</body>
+</html>

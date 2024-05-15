@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Ingresar Anuncio</title>
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+	<div th:insert="~{navigation::navigation}"></div>
+	<h1>Ingrese sus Anuncios</h1>
+	<form method="post" action="/anuncios/ingresar" th:object="${newAutor}">
+		<h2>Datos del Autor</h2>
+		<label>Nombre Autor:</label>
+		<input name="name" type="text" placeholder="Nombre del Autor" th:field="*{name}" ><br/><br/>
+		<label>Apellido Autor:</label>
+		<input name="lastname" type="text" placeholder="Apellido del Autor" th:field="*{lastname}" ><br/><br/>
+		<label>Email Autor:</label>
+		<input name="email" type="text" placeholder="Email del Autor" th:field="*{email}" ><br/><br/>
+		<label>Usuario del Autor:</label>
+		<input name="username" type="text" placeholder="Usuario del Autor" th:field="*{username}" ><br/><br/>
+		<h2>Datos del anuncio</h2>
+		<label>Titulo:</label>
+		<input name="titulo" type="text" placeholder="Ingrese titulo"><br/><br/>
+		<label>Contenido:</label>
+		<textarea name="contenido" rows="4" cols="50">Ingrese contenido</textarea><br/><br/>
+		<label for="year">Year (Entre 2024 y 2030):
+		<input type="number" id="year" name="year" min="2024" max="2030"></label><br/><br/>
+		<label for="mes">Mes (Entre 1 y 12):
+		<input type="number" id="mes" name="mes" min="1" max="12"></label><br/><br/>
+		<label for="dia">Dia (Entre 1 y 31):
+		<input type="number" id="dia" name="dia" min="1" max="31"></label><br/><br/>
+		<label for="hora">Hora (Entre 1 y 24):
+		<input type="number" id="hora" name="hora" min="1" max="24"></label><br/><br/>
+		<label for="minuto">Minuto (Entre 1 y 60):
+		<input type="number" id="minuto" name="minuto" min="1" max="60"></label><br/><br/>
+		<input name="enviar" type="submit" placeholder="Mostrar Anuncios"> <input type="reset" ><br/>
+	</form>
+</body>
+</html>

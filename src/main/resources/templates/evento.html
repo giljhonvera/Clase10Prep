@@ -1,0 +1,49 @@
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+	<form method="get" action="/anuncios/vereventos">
+		<h2>Ver eventos registrados:</h2><button>Eventos</button>
+	</form>
+	<br /><br />
+	<h1>Ingrese Evento</h1>
+	<!-- 
+		private Integer id;
+	private String title;
+	private String descripcion;
+	private Estado estado;
+	private Tipo tipo;
+	private LocalDate datecreated;
+	private LocalDate dateupdated;
+	 -->
+	<form method="post" action="/anuncios/ingresarevento">
+		<label>Titulo: </label><br />
+		<input type="text" name="title"><br /><br />
+		<label>Descripcion: </label><br />
+		<textarea name="descripcion" rows="4" cols="50"></textarea><br /><br />
+		<label>Estado: </label><br />
+		<select name="estado">
+		  <option value="IDEA">IDEA</option>
+		  <option value="ENPROGRESO">ENPROGRESO</option>
+		  <option value="COMPLETADO">COMPLETADO</option>
+		  <option value="PUBLICADO">PUBLICADO</option>
+		</select><br /><br />
+		<label>Tipo: </label><br />
+		<select name="tipo">
+		  <option value="ARTICULO">ARTICULO</option>
+		  <option value="VIDEO">VIDEO</option>
+		  <option value="CURSO">CURSO</option>
+		  <option value="CONFERENCIA">CONFERENCIA</option>
+		</select><br /><br />
+		<label>Fecha de Creacion: </label><br />	
+			<input type="date" name="datecreated"><br /><br />	
+		 <input type="submit" value="Ingresar" /> <input type="reset" />
+	</form>
+	<br /><br />	
+	<form method="get" action="/anuncios">
+		<button>Volver</button>
+	</form>
+</body>
+</html>

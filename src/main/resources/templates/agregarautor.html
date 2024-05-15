@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Agregar Autor</title>
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+	<h1>Agregar Autor</h1>
+	
+	<table>
+		<tr>
+			<th>Id</th>
+			<th>Nombre</th>
+			<th>Apellido</th>
+			<th>Agregar Autor</th>
+		</tr>
+		<th:block th:each="a : ${autores}">
+			<tr>
+				<td th:text="${a.id}"></td>
+				<td th:text="${a.name}"></td>
+				<td th:text="${a.lastname}"></td>
+				<td>
+					<form method="post" action="/anuncios/asignarautor">
+						<input type="hidden" th:attr="name='idEvento'" th:value="${idEvento}" />
+						<input type="hidden" th:attr="name='idAutor'" th:value="${a.id}" />
+						<input value="Agregar" type="submit" placeholder="Ingresar Anuncio" /> <br/>
+					</form>
+				</td>
+			</tr>
+		</th:block>
+	</table>
+	<br />
+	<form method="get" action="/anuncios/vereventos">
+		<button>Volver a eventos</button>
+	</form>
+</body>
+</html>

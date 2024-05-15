@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Agregar comenario</title>
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+	<h1>Menu Comentarios</h1>
+	<table>
+		<tr>
+			<th>Id Anuncio</th>
+			<th>Title Anuncio</th>
+			<th>Agregar Comentario</th>
+			<th>Ver Comentarios</th>
+		</tr>
+		<th:block th:each="a : ${anuncios}">
+			<tr>
+				<td th:text="${a.id}"></td>
+				<td th:text="${a.title}"></td>
+				<td><button><a th:href="@{|/anuncios/agregarComentario/${a.id}|}">Agregar</a></button></td>
+				<td><button><a th:href="@{|/anuncios/verComentarios/${a.id}|}">Comentarios</a></button></td>
+			</tr>
+		</th:block>
+	</table>
+	<br>
+	<form method="get" action="/anuncios/listar">
+		<button>Volver</button>
+	</form></td>
+	
+</body>
+</html>

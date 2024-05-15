@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+	<h1>Autores del Evento</h1>
+	<table>
+		<tr>
+			<th>Id</th>
+			<th>Evento</th>
+		</tr>
+		<tr>
+			<td th:text="${evento.id}"></td>
+			<td th:text="${evento.title}"></td>
+		</tr>
+	</table>
+	<br />
+	<table>
+		<tr>
+			<th>Id</th>
+			<th>Nombre</th>
+			<th>Apellido</th>
+			<th>Email</th>
+		</tr>
+		<th:block th:each="a : ${autores}">
+			<tr>
+				<td th:text="${a.id}"></td>
+				<td th:text="${a.name}"></td>
+				<td th:text="${a.lastname}"></td>
+				<td th:text="${a.email}"></td>
+			</tr>
+		</th:block>
+	</table>
+	<br />
+	<form method="get" action="/anuncios/vereventos">
+		<button>Volver</button>
+	</form>
+</body>
+</html>
